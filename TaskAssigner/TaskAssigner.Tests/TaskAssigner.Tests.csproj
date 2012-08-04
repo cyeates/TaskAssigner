@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.0.12054\lib\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,8 +43,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="CostTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TaskAssigner.Data\TaskAssigner.Data.csproj">
+      <Project>{00CC5470-D0E9-4C25-A53C-DA2B1F419ABC}</Project>
+      <Name>TaskAssigner.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TaskAssigner.Domain\TaskAssigner.Domain.csproj">
+      <Project>{F51D83B1-C61F-4EB0-9118-31DEC857B4E6}</Project>
+      <Name>TaskAssigner.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TaskAssigner.Web\TaskAssigner.Web.csproj">
+      <Project>{E1413844-498E-4FF4-A6BE-82672E722121}</Project>
+      <Name>TaskAssigner.Web</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

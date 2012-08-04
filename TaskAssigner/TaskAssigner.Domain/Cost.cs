@@ -13,7 +13,17 @@ namespace TaskAssigner.Domain
         {
 
             //gets sum of tickets that don't match up to developer's preferences
-            int cost = developers.Sum(developer => developer.Tickets.Count(ticket => !developer.Tags.Intersect(ticket.Tags).Any()));
+            int cost = 0;
+            foreach (var developer in developers)
+            {
+                foreach(var ticket in developer.Tickets)
+                {
+                    if (!developer.Tags.Intersect(ticket.Tags).Any())
+                    {
+                        cost += 1;
+                    }
+                }
+            }
 
             return cost;
         }

@@ -10,6 +10,11 @@ namespace TaskAssigner.Data
     {
         public int Estimate { get; set; }
         public Priority Priority { get; set; }
-        public List<Tag> Tags { get; set; } 
+        public List<string> Tags { get; set; } 
+
+        public Ticket()
+        {
+            Tags = new List<string>();
+        }
     }
 }
