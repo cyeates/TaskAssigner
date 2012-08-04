@@ -8,6 +8,7 @@ namespace TaskAssigner.Data
 {
     public class Ticket
     {
+        public int Id { get; set; }
         public int Estimate { get; set; }
         public Priority Priority { get; set; }
         public List<string> Tags { get; set; } 

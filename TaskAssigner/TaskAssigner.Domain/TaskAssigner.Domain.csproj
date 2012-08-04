@@ -41,8 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\Priority.cs" />
+    <Compile Include="HillClimb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Cost.cs" />
+    <Compile Include="RandomOptimize.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TaskAssigner.Data\TaskAssigner.Data.csproj">

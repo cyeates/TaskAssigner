@@ -7,6 +7,7 @@ namespace TaskAssigner.Data
 {
     public class Developer
     {
+        public int Id { get; set; }
         public IEnumerable<string> Tags { get; set; }
         public IList<Ticket> Tickets { get; set; }
  

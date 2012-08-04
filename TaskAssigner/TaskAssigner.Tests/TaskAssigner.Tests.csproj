@@ -44,7 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CostTests.cs" />
+    <Compile Include="Fakes\FakeData.cs" />
+    <Compile Include="HillClimbTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RandomOptimizeTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
