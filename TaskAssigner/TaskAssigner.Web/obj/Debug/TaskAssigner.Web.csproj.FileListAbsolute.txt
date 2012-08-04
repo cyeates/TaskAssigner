@@ -1,0 +1,7 @@
+C:\Users\cyeates\Documents\GitHub\TaskAssigner\TaskAssigner\TaskAssigner.Web\bin\TaskAssigner.Web.dll
+C:\Users\cyeates\Documents\GitHub\TaskAssigner\TaskAssigner\TaskAssigner.Web\bin\TaskAssigner.Web.pdb
+C:\Users\cyeates\Documents\GitHub\TaskAssigner\TaskAssigner\TaskAssigner.Web\bin\EntityFramework.dll
+C:\Users\cyeates\Documents\GitHub\TaskAssigner\TaskAssigner\TaskAssigner.Web\bin\EntityFramework.xml
+C:\Users\cyeates\Documents\GitHub\TaskAssigner\TaskAssigner\TaskAssigner.Web\obj\Debug\TaskAssigner.Web.csprojResolveAssemblyReference.cache
+C:\Users\cyeates\Documents\GitHub\TaskAssigner\TaskAssigner\TaskAssigner.Web\obj\Debug\TaskAssigner.Web.dll
+C:\Users\cyeates\Documents\GitHub\TaskAssigner\TaskAssigner\TaskAssigner.Web\obj\Debug\TaskAssigner.Web.pdb
