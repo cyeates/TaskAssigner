@@ -41,16 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\Priority.cs" />
-    <Compile Include="HillClimb.cs" />
+    <Compile Include="IOptimizationAlgorithm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Cost.cs" />
     <Compile Include="RandomOptimize.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TaskAssigner.Data\TaskAssigner.Data.csproj">
-      <Project>{00CC5470-D0E9-4C25-A53C-DA2B1F419ABC}</Project>
-      <Name>TaskAssigner.Data</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

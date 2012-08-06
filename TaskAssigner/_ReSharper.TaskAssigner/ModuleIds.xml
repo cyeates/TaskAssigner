@@ -1,0 +1,6 @@
+<Modules>
+  <Module PersistentId="A79CD6BF-573D-47DA-B718-C5FA5A91B30F" ModuleId="TaskAssigner.Tests" />
+  <Module PersistentId="00CC5470-D0E9-4C25-A53C-DA2B1F419ABC" ModuleId="TaskAssigner.Data" />
+  <Module PersistentId="F51D83B1-C61F-4EB0-9118-31DEC857B4E6" ModuleId="TaskAssigner.Domain" />
+  <Module PersistentId="E1413844-498E-4FF4-A6BE-82672E722121" ModuleId="TaskAssigner.Web" />
+</Modules>

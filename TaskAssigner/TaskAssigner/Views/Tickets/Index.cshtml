@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Tickets";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<form data-bind="submit: addTicket">
+    <div id="new-ticket">
+        <textarea rows="5" cols="25" data-bind="value: ticketToAdd">
+        </textarea>
+        Tags: <input id="tags"/>
+    </div>
+    <button type="submit">Add</button>
+</form>
+
+<div data-bind="foreach: tickets">
+    <div data-bind="text: description"></div>
+
+</div>
+
+
+<script type="text/javascript">
+    var viewModel;
+    $(function () {
+        $.ajax({
+            type: "GET",
+            url: "Tickets/GetTickets",
+            success: function (result) {
+
+                var tickets = [];
+                for (var i = 0; i < result.length; i++) {
+                    tickets.push(new Ticket(result[i].Description, result[i].Tags));
+                }
+                viewModel = new TicketsViewModel(tickets);
+                ko.applyBindings(viewModel);
+            }
+        });
+
+    });
+
+</script>

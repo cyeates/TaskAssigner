@@ -1,0 +1,7 @@
+C:\Users\cyeates\Documents\GitHub\TaskAssigner\TaskAssigner\TaskAssigner.Domain\bin\Debug\TaskAssigner.Domain.dll
+C:\Users\cyeates\Documents\GitHub\TaskAssigner\TaskAssigner\TaskAssigner.Domain\bin\Debug\TaskAssigner.Domain.pdb
+C:\Users\cyeates\Documents\GitHub\TaskAssigner\TaskAssigner\TaskAssigner.Domain\bin\Debug\TaskAssigner.Data.dll
+C:\Users\cyeates\Documents\GitHub\TaskAssigner\TaskAssigner\TaskAssigner.Domain\bin\Debug\TaskAssigner.Data.pdb
+C:\Users\cyeates\Documents\GitHub\TaskAssigner\TaskAssigner\TaskAssigner.Domain\obj\Debug\TaskAssigner.Domain.csprojResolveAssemblyReference.cache
+C:\Users\cyeates\Documents\GitHub\TaskAssigner\TaskAssigner\TaskAssigner.Domain\obj\Debug\TaskAssigner.Domain.dll
+C:\Users\cyeates\Documents\GitHub\TaskAssigner\TaskAssigner\TaskAssigner.Domain\obj\Debug\TaskAssigner.Domain.pdb
