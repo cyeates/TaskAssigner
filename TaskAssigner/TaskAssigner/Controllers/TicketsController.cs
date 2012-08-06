@@ -34,7 +34,9 @@ namespace TaskAssigner.Web.Controllers
                                   new Ticket {Description = "this is another ticket."}
                               };
 
-            return Json(tickets, JsonRequestBehavior.AllowGet);
+            var tags = new List<string> { "JavaScript", "C#", "asp.net-mvc", "entity-framework", "sql", "database", "jQuery" };
+
+            return Json(new {Tickets = tickets, Tags = tags}, JsonRequestBehavior.AllowGet);
 
             //return Json(_ticketRepository.GetTickets(), JsonRequestBehavior.AllowGet);
         }

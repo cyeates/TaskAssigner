@@ -96,6 +96,7 @@
     <Compile Include="Models\Developer.cs" />
     <Compile Include="Models\IOptimizationAlgorithm.cs" />
     <Compile Include="Models\RandomOptimize.cs" />
+    <Compile Include="Models\Repositories\TagRepository.cs" />
     <Compile Include="Models\Repositories\TicketRepository.cs" />
     <Compile Include="Models\Tag.cs" />
     <Compile Include="Models\TaskAssignerContext.cs" />
@@ -145,6 +146,7 @@
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Scripts\task-assigner.tags.js" />
     <Content Include="Scripts\task-assigner.tickets.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
