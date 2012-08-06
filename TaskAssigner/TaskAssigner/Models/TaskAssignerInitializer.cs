@@ -28,22 +28,22 @@ namespace TaskAssigner.Models
                               {
                                   new Ticket
                                       {
-                                          TicketId = 1,
+                                          //TicketId = 1,
                                           Tags = new List<string> {"jQuery"}
                                       },
                                   new Ticket
                                       {
-                                          TicketId = 2,
+                                          //TicketId = 2,
                                           Tags = new List<string> {"database"}
                                       },
                                   new Ticket
                                       {
-                                          TicketId = 3,
+                                          //TicketId = 3,
                                           Tags = new List<string> {"asp.net-mvc", "c#"}
                                       },
                                   new Ticket
                                       {
-                                          TicketId = 4,
+                                         // TicketId = 4,
                                           Tags = new List<string> {"css"}
                                       }
 

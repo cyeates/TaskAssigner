@@ -41,6 +41,13 @@ namespace TaskAssigner.Web.Controllers
             //return Json(_ticketRepository.GetTickets(), JsonRequestBehavior.AllowGet);
         }
 
+        [HttpPost]
+        public void Create(Ticket ticket)
+        {
+            _ticketRepository.Add(ticket);
+            _ticketRepository.Save();
+        }
+
         
     }
 }

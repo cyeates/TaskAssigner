@@ -26,22 +26,22 @@ namespace TaskAssigner.Tests.Fakes
 
             _ticket1 = new Ticket
                            {
-                               TicketId = 1,
+                              // TicketId = 1,
                                Tags = new List<string> {"jQuery"}
                            };
             _ticket2 = new Ticket
                            {
-                               TicketId = 2,
+                               //TicketId = 2,
                                Tags = new List<string> {"database"}
                            };
             _ticket3 = new Ticket
                            {
-                               TicketId = 3,
+                              // TicketId = 3,
                                Tags = new List<string> {"asp.net-mvc", "c#"}
                            };
             _ticket4 = new Ticket
                 {
-                    TicketId = 4,
+                    //TicketId = 4,
                     Tags = new List<string> {"css"}
                 };
 

@@ -6,6 +6,8 @@ namespace TaskAssigner.Models.Repositories
     public interface ITicketRepository
     {
         IEnumerable<Ticket> GetTickets();
+        void Add(Ticket ticket);
+        void Save();
     }
 
     public class TicketRepository : ITicketRepository
@@ -20,6 +22,16 @@ namespace TaskAssigner.Models.Repositories
         public IEnumerable<Ticket> GetTickets()
         {
             return _context.Tickets.ToList();
+        }
+
+        public void Add(Ticket ticket)
+        {
+            _context.Tickets.Add(ticket);
+        }
+
+        public void Save()
+        {
+            _context.SaveChanges();
         }
     }
 }
