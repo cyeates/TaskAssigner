@@ -61,6 +61,7 @@ namespace TaskAssigner.App_Start
             kernel.Bind<ITicketRepository>().To<TicketRepository>();
             kernel.Bind<IDeveloperRepository>().To<DeveloperRepository>();
             kernel.Bind<ITagRepository>().To<TagRepository>();
+            kernel.Bind<OptimizationAlgorithm>().To<RandomOptimize>();
             kernel.Bind<DeveloperService>().To<DeveloperService>();
 
         }        

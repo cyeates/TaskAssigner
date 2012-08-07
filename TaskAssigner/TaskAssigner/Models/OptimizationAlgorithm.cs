@@ -3,17 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using TaskAssigner.Domain;
+using TaskAssigner.Models.Repositories;
 
 namespace TaskAssigner.Models
 {
     public abstract class OptimizationAlgorithm
     {
-       public OptimizationAlgorithm(List<Developer> developers, List<Ticket> tickets, Cost calculator)
+        public OptimizationAlgorithm(IDeveloperRepository developerRepository, ITicketRepository ticketRepository)
         {
-            Developers = developers;
-            Tickets = tickets;
-            CostCalculator = calculator;
+            Developers = developerRepository.GetDevelopers();
+            Tickets = ticketRepository.GetTickets();
+            CostCalculator = new Cost(Developers, Tickets);
             Domain= GetDomain();
+            
         }
 
         
@@ -22,6 +24,7 @@ namespace TaskAssigner.Models
         protected List<Ticket> Tickets { get;  set; }
         protected Cost CostCalculator { get;  set; }
         protected List<List<int>> Domain { get; private set; }
+        
         
         private List<List<int>> GetDomain()
         {

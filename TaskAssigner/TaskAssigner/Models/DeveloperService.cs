@@ -11,11 +11,13 @@ namespace TaskAssigner.Models
     {
         private readonly IDeveloperRepository _developerRepository;
         private readonly ITicketRepository _ticketRepository;
+        private readonly OptimizationAlgorithm _optimization;
 
-        public DeveloperService(IDeveloperRepository developerRepository, ITicketRepository ticketRepository)
+        public DeveloperService(IDeveloperRepository developerRepository, ITicketRepository ticketRepository, OptimizationAlgorithm optimization)
         {
             _developerRepository = developerRepository;
             _ticketRepository = ticketRepository;
+            _optimization = optimization;
         }
 
         public List<Developer> AssignTicketsToDevelopers()
@@ -24,10 +26,8 @@ namespace TaskAssigner.Models
             RemoveExistingTicketsFromDevelopers(developers);
 
             var tickets = _ticketRepository.GetTickets();
-
-            var costCalculator = new Cost(developers, tickets);
-            var optimization = new RandomOptimize(developers, tickets, costCalculator);
-            var solution = optimization.GetSolution();
+            
+            var solution = _optimization.GetSolution();
 
            
             for(int ticketIndex = 0; ticketIndex < solution.Count; ticketIndex++)

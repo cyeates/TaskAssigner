@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TaskAssigner.Models;
+using TaskAssigner.Models.Repositories;
 
 namespace TaskAssigner.Domain
 {
     public class RandomOptimize : OptimizationAlgorithm
     {
-        public RandomOptimize(List<Developer> developers, List<Ticket> tickets, Cost calculator) : base(developers, tickets, calculator)
+        public RandomOptimize(IDeveloperRepository developerRepository, ITicketRepository ticketRepository) : base(developerRepository, ticketRepository)
         {
 
         }

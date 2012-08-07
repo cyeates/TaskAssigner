@@ -11,15 +11,15 @@
 
     @foreach(var developer in @Model)
     {
-        <div class="ui-widget-header">
+        <div class="ui-state-default">
             <h3>@developer.Name</h3>
             <b>Tags:</b> @String.Join(", ", @developer.Tags.Select(t => t.Name).ToArray())
         </div>
         <table width="100%">
             <thead>
                 <tr>
-                    <th class="ui-state-default">#</th>
-                    <th class="ui-state-default">Description</th>
+                    <th>#</th>
+                    <th>Description</th>
                 </tr>
             </thead>
             <tbody>
