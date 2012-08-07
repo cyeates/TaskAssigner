@@ -60,7 +60,6 @@
     <Compile Include="Fakes\FakeData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomOptimizeTests.cs" />
-    <Compile Include="Web\Controllers\TicketsControllerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

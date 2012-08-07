@@ -12,6 +12,7 @@ namespace TaskAssigner.Models
         private readonly IDeveloperRepository _developerRepository;
         private readonly ITicketRepository _ticketRepository;
         private readonly OptimizationAlgorithm _optimization;
+        private List<Developer> _developers;
 
         public DeveloperService(IDeveloperRepository developerRepository, ITicketRepository ticketRepository, OptimizationAlgorithm optimization)
         {
@@ -20,30 +21,36 @@ namespace TaskAssigner.Models
             _optimization = optimization;
         }
 
+        /// <summary>
+        /// Assigns tickets to developers based on the developer's preferences and tags indicated in each ticket.
+        /// </summary>
+        /// <returns></returns>
         public List<Developer> AssignTicketsToDevelopers()
         {
-            var developers = _developerRepository.GetDevelopers();
-            RemoveExistingTicketsFromDevelopers(developers);
+            _developers = _developerRepository.GetDevelopers();
+            RemoveExistingTicketsFromDevelopers(_developers);
 
             var tickets = _ticketRepository.GetTickets();
             
             var solution = _optimization.GetSolution();
 
-           
             for(int ticketIndex = 0; ticketIndex < solution.Count; ticketIndex++)
             {
-                var developerIndex = solution[ticketIndex];
-                var developer = developers[developerIndex];
+                var developer = GetDeveloper(solution, ticketIndex);
                 var ticket = tickets[ticketIndex];
-
                 developer.Tickets.Add(ticket);
-               
-                
             }
 
             _developerRepository.Save();
 
-            return developers;
+            return _developers;
+        }
+
+        private Developer GetDeveloper(List<int> solution, int ticketIndex)
+        {
+            var developerIndex = solution[ticketIndex];
+            var developer = _developers[developerIndex];
+            return developer;
         }
 
         private void RemoveExistingTicketsFromDevelopers(IEnumerable<Developer> developers)

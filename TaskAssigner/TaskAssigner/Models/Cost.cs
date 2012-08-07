@@ -18,6 +18,11 @@ namespace TaskAssigner.Domain
            
         }
 
+        /// <summary>
+        /// Calculates the cost of the proposed solution.  Lower costs are better.
+        /// </summary>
+        /// <param name="solution"></param>
+        /// <returns></returns>
         public int Calculate(List<int> solution)
         {
             int cost = 0;
@@ -35,9 +40,7 @@ namespace TaskAssigner.Domain
                 }
                 
             }
-
-          
-
+            
             return cost;
             
         }
