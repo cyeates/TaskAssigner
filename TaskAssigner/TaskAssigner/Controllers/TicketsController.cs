@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 using TaskAssigner.Models;
@@ -21,7 +22,8 @@ namespace TaskAssigner.Web.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var tickets = _ticketRepository.GetTickets();
+            return View(tickets);
         }
 
         [HttpGet]
@@ -35,11 +37,38 @@ namespace TaskAssigner.Web.Controllers
             
         }
 
-        [HttpPost]
-        public void Create(Ticket ticket)
+        public ActionResult Create()
         {
-            _ticketRepository.Add(ticket);
-            _ticketRepository.Save();
+            var ticket = new Ticket();
+            return View(ticket);
+        }
+
+        [HttpPost]
+        public ActionResult Create(Ticket ticket, string tagsString)
+        {
+            AddTagsToTicket(ticket, tagsString);
+            if (ModelState.IsValid)
+            {
+                _ticketRepository.Add(ticket);
+                _ticketRepository.Save();
+
+                return RedirectToAction("Index");
+            }
+
+            return View(ticket);
+
+
+        }
+        
+        private Ticket AddTagsToTicket(Ticket ticket, string tagsString)
+        {
+            var tagNames = Regex.Split(tagsString, ", ");
+            foreach(string tagName in tagNames.Where(t => !String.IsNullOrEmpty(t)))
+            {
+                var tag = _tagRepository.GetByName(tagName);
+                ticket.Tags.Add(tag);
+            }
+            return ticket;
         }
 
         

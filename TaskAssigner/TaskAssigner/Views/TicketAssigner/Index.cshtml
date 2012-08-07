@@ -6,29 +6,36 @@
 
 <h2>@ViewBag.Title </h2>
 
-@foreach(var developer in @Model)
-{
-    <div>
-        <h3>@developer.Name</h3>
-        <b>Tags:</b> @String.Join(". ", @developer.Tags)
-    </div>
-    <table>
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Description</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach(var ticket in developer.Tickets)
-            {
+<div id="tickets">
+    
+
+    @foreach(var developer in @Model)
+    {
+        <div class="ui-widget-header">
+            <h3>@developer.Name</h3>
+            <b>Tags:</b> @String.Join(", ", @developer.Tags.Select(t => t.Name).ToArray())
+        </div>
+        <table width="100%">
+            <thead>
                 <tr>
-                    <td>@ticket.TicketId.ToString()</td>
-                    <td>@ticket.Description</td>
+                    <th class="ui-state-default">#</th>
+                    <th class="ui-state-default">Description</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach(var ticket in developer.Tickets)
+                {
+                    <tr>
+                        <td>@ticket.TicketId.ToString()</td>
+                        <td>
+                            @ticket.Description<br/>
+                            <b>Tags: </b> @String.Join(", ", ticket.Tags.Select(t => t.Name).ToArray())
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
                     
              
-}
+    }
+</div>

@@ -1,46 +1,41 @@
-﻿@{
-    ViewBag.Title = "Tickets";
+﻿@model IEnumerable<TaskAssigner.Models.Ticket>
+
+@{
+    ViewBag.Title = "Index";
 }
 
-<h2>@ViewBag.Title</h2>
+<h2>Index</h2>
 
-<form data-bind="submit: addTicket">
-    <div id="new-ticket">
-        <textarea rows="5" cols="25" data-bind="value: ticketToAdd">
-        </textarea>
-        <br/>
-        Tags: <input id="tags" type="text"/>
-    </div>
-    <button type="submit">Add</button>
-</form>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            #
+        </th>
+        <th>
+            Description
+        </th>
+        <th>Tags</th>
+        <th></th>
+    </tr>
 
-<div data-bind="foreach: tickets">
-    <div data-bind="text: description"></div>
-    Tags: <span data-bind="text: tagsString"></span>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.TicketId.ToString()
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @String.Join(", ", @item.Tags.Select(t => t.Name).ToArray())  
+        </td>
+        @*<td>
+            @Html.ActionLink("Delete", "Delete", new { id=item.TicketId })
+        </td>*@
+    </tr>
+}
 
-</div>
-
-
-<script type="text/javascript">
-    var viewModel;
-    var tags;
-    $(function () {
-        $.ajax({
-            type: "GET",
-            url: "Tickets/GetTickets",
-            success: function (result) {
-
-                var tickets = [];
-                for (var i = 0; i < result.Tickets.length; i++) {
-                    tickets.push(new Ticket(result.Tickets[i].Description, result.Tickets[i].Tags));
-                }
-                viewModel = new TicketsViewModel(tickets);
-                ko.applyBindings(viewModel);
-
-                var autoComplete = new AutoComplete(result.Tags);
-            }
-        });
-
-    });
-
-</script>
+</table>

@@ -8,6 +8,7 @@ namespace TaskAssigner.Models.Repositories
     public interface ITagRepository
     {
         IEnumerable<Tag> GetTags();
+        Tag GetByName(string name);
     }
 
     public class TagRepository : ITagRepository
@@ -23,5 +24,10 @@ namespace TaskAssigner.Models.Repositories
         {
             return _context.Tags;
         } 
+
+        public Tag GetByName(string name)
+        {
+            return _context.Tags.FirstOrDefault(t => t.Name == name);
+        }
     }
 }

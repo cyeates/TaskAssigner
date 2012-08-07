@@ -21,6 +21,8 @@ namespace TaskAssigner.Models
         public List<Developer> AssignTicketsToDevelopers()
         {
             var developers = _developerRepository.GetDevelopers();
+            RemoveExistingTicketsFromDevelopers(developers);
+
             var tickets = _ticketRepository.GetTickets();
 
             var costCalculator = new Cost(developers, tickets);
@@ -42,6 +44,14 @@ namespace TaskAssigner.Models
             _developerRepository.Save();
 
             return developers;
+        }
+
+        private void RemoveExistingTicketsFromDevelopers(IEnumerable<Developer> developers)
+        {
+            foreach(var developer in developers)
+            {
+                developer.Tickets.Clear();
+            }
         }
     }
 }

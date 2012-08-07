@@ -188,15 +188,14 @@ legend {
 
 textarea {
     min-height: 75px;
+    width:300px;
 }
 
 input[type="text"], 
 input[type="password"] {
     border: 1px solid #ccc;
     padding: 2px;
-    font-size: 1.2em;
-    color: #444;
-    width: 200px;
+    width: 300px;
 }
 
 select {
@@ -322,3 +321,12 @@ div#title {
 .tri-state {
     width: 6em;
 }
+
+.results-name 
+{
+    background-color: #E8EEF4;
+    margin-bottom: 0;
+}
+
+.ticket, .new-description, #tags, #tickets { margin-bottom: 20px;}
+
