@@ -11,9 +11,9 @@
 
     @foreach(var developer in @Model)
     {
-        <div class="ui-state-default">
+        <div class="ticket-header">
             <h3>@developer.Name</h3>
-            <b>Tags:</b> @String.Join(", ", @developer.Tags.Select(t => t.Name).ToArray())
+            <div class="tags"><b>Tags:</b> @String.Join(", ", @developer.Tags.Select(t => t.Name).ToArray())</div>
         </div>
         <table width="100%">
             <thead>

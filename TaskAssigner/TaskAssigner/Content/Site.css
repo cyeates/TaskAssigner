@@ -44,7 +44,7 @@ section {
 
 /* HEADINGS   
 ----------------------------------------------------------*/
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h4, h5, h6 {
     font-size: 1.5em;
     color: #000;
 }
@@ -61,6 +61,9 @@ h2 {
 
 h3 {
     font-size: 1.2em;
+    margin: 5px;
+    color: #FFFFFF;
+    
 }
 
 h4 {
@@ -329,4 +332,14 @@ div#title {
 }
 
 .ticket, .new-description, #tags, #tickets { margin-bottom: 20px;}
+
+#tickets table { margin-bottom: 20px;}
+
+.tags { margin-left: 5px;}
+
+.ticket-header {
+     background-color: #5C87B2;
+     color: white;
+     text-shadow: 1px 1px 2px #111111;
+}
 

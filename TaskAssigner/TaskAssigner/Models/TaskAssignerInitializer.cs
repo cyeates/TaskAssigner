@@ -6,7 +6,7 @@ using System.Web;
 
 namespace TaskAssigner.Models
 {
-    public class TaskAssignerInitializer : DropCreateDatabaseAlways<TaskAssignerContext>
+    public class TaskAssignerInitializer : DropCreateDatabaseIfModelChanges<TaskAssignerContext>
     {
         
         private List<Tag> _tags;
