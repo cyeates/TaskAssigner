@@ -13,37 +13,45 @@ namespace TaskAssigner.Tests
     public class DeveloperServiceTests
     {
         private Mock<IDeveloperRepository> _developerRepository;
-        private Developer _developer;
-        private DeveloperService _developerService;
-        private const int DeveloperId = 1;
+        private Mock<ITicketRepository> _ticketRepository;
+        private Mock<OptimizationAlgorithm> _optimization;
 
-        //[SetUp]
-        //public void SetUp()
-        //{
-        //    _developer = new Developer { DeveloperId = DeveloperId };
-        //    _developerRepository = new Mock<IDeveloperRepository>();
-        //    _developerRepository.Setup(d => d.GetById(DeveloperId)).Returns(_developer);
 
-        //    _developerService = new DeveloperService(_developerRepository.Object);
-        //}
-
-        //[Test]
-        //public void AddTicketsFromSolutionToDevelopers()
-        //{
+        [SetUp]
+        public void SetUp()
+        {
             
-        //    var solution = new List<int> {0};
-        //    var tickets = new List<Ticket>
-        //                      {
-        //                          new Ticket {TicketId = 123}
-        //                      };
-        //    var developers = new List<Developer>
-        //                         {
-        //                             _developer
-        //                         };
+            var developers = new List<Developer>
+                                 {
+                                    new Developer{Name = "Chad Yeates"}
+                                 };
 
-        //    var updatedDevelopers = _developerService.AssignTicketsToDevelopers(solution, developers, tickets);
+            _developerRepository = new Mock<IDeveloperRepository>();
+            _developerRepository.Setup(d => d.GetDevelopers()).Returns(developers);
 
-        //    Assert.AreEqual(123, updatedDevelopers[0].Tickets[0].TicketId);
-        //}
+
+            var tickets = new List<Ticket>
+                              {
+                                  new Ticket {TicketId = 123}
+                              };
+
+            _ticketRepository = new Mock<ITicketRepository>();
+            _ticketRepository.Setup(t => t.GetTickets()).Returns(tickets);
+
+            var solution = new List<int> { 0 };
+            _optimization = new Mock<OptimizationAlgorithm>();
+            _optimization.Setup(o => o.GetSolution()).Returns(solution);
+
+
+        }
+
+        [Test]
+        public void AddTicketsFromSolutionToDevelopers()
+        {
+            var developerService = new DeveloperService(_developerRepository.Object, _ticketRepository.Object, _optimization.Object);
+            var updatedDevelopers = developerService.AssignTicketsToDevelopers();
+
+            Assert.AreEqual(123, updatedDevelopers[0].Tickets[0].TicketId);
+        }
     }
 }

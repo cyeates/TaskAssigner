@@ -39,7 +39,7 @@ namespace TaskAssigner.Tests
         public void CostIs0WhenAllTicketsMatchDeveloperPreferences()
         {
 
-            var solution = new List<int> {1, 2, 2, 1};
+            var solution = new List<int> {0, 1, 1, 0};
            
             Assert.AreEqual(0, _cost.Calculate(solution));
             
@@ -48,7 +48,7 @@ namespace TaskAssigner.Tests
         [Test]
         public void CostIs4WhenAllTicketsDoNotMatchDeveloperPreferences()
         {
-            var solution = new List<int> {2, 1, 1, 2};
+            var solution = new List<int> {1, 0, 0, 1};
             Assert.AreEqual(4, _cost.Calculate(solution));
         }
     }

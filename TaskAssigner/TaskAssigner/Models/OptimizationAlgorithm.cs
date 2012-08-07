@@ -21,6 +21,12 @@ namespace TaskAssigner.Models
             
         }
 
+        //used for unit testing
+        public OptimizationAlgorithm()
+        {
+            
+        }
+
         
 
         protected List<Developer> Developers { get; set; }

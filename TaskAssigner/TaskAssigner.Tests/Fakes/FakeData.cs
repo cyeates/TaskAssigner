@@ -24,51 +24,74 @@ namespace TaskAssigner.Tests.Fakes
         {
 
 
-           // _ticket1 = new Ticket
-           //                {
-           //                   // TicketId = 1,
-           //                    Tags = new List<string> {"jQuery"}
-           //                };
-           // _ticket2 = new Ticket
-           //                {
-           //                    //TicketId = 2,
-           //                    Tags = new List<string> {"database"}
-           //                };
-           // _ticket3 = new Ticket
-           //                {
-           //                   // TicketId = 3,
-           //                    Tags = new List<string> {"asp.net-mvc", "c#"}
-           //                };
-           // _ticket4 = new Ticket
-           //     {
-           //         //TicketId = 4,
-           //         Tags = new List<string> {"css"}
-           //     };
+            _ticket1 = new Ticket
+                           {
+                               TicketId = 1,
+                               Tags = new List<Tag>
+                                          {
+                                            new Tag{Name = "jquery"}   
+                                          }
+                           };
+            _ticket2 = new Ticket
+                           {
+                               TicketId = 2,
+                               Tags = new List<Tag>
+                                          {
+                                              new Tag{Name="database"}
+                                          }
+                           };
+            _ticket3 = new Ticket
+                           {
+                               TicketId = 3,
+                               Tags = new List<Tag>
+                                          {
+                                              new Tag{Name="asp.net-mvc"},
+                                              new Tag{Name= "c#"}
+                                          }
+                           };
+            _ticket4 = new Ticket
+                {
+                    TicketId = 4,
+                    Tags = new List<Tag>
+                               {
+                                   new Tag{Name="css"}
+                               }
+                };
 
-           // _tickets = new List<Ticket> {_ticket1, _ticket2, _ticket3, _ticket4};
+            _tickets = new List<Ticket> { _ticket1, _ticket2, _ticket3, _ticket4 };
 
 
 
-           // _homer = new Developer
-           //     {
-           //         DeveloperId = 1,
-           //         Tags = new List<string> {"jQuery", "JavaScript", "css"}
-           //     };
-           //_ned = new Developer
-           //     {
-           //         DeveloperId = 2,
-           //         Tags = new List<string> {"c#", "asp.net-mvc", "database"}
-           //     };
+            _homer = new Developer
+                {
+                    DeveloperId = 1,
+                    Tags = new List<Tag>
+                               {
+                                   new Tag{Name="jquery"},
+                                   new Tag{Name = "javascript"}, 
+                                   new Tag{Name="css"}
+                               }
+                };
+            _ned = new Developer
+                 {
+                     DeveloperId = 2,
+                     Tags = new List<Tag>
+                                {
+                                    new Tag{Name="c#"}, 
+                                    new Tag{Name="asp.net-mvc"}, 
+                                    new Tag{Name="database"}
+                                }
+                 };
 
-           // _developers = new List<Developer> {_homer, _ned};
+            _developers = new List<Developer> { _homer, _ned };
         }
 
-        public IList<Developer> GetDevelopers()
+        public List<Developer> GetDevelopers()
         {
             return _developers;
         } 
 
-        public IList<Ticket> GetTickets()
+        public List<Ticket> GetTickets()
         {
             return _tickets;
         } 

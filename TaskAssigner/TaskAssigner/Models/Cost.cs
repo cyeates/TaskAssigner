@@ -34,7 +34,9 @@ namespace TaskAssigner.Domain
                 var developer = _developers[developerIndex];
                 
                 //increase cost if developer isn't assigned any interesting tickets
-                if (!developer.Tags.Intersect(ticket.Tags).Any())
+                var developerTags = developer.Tags.Select(t => t.Name).ToArray();
+                var ticketTags = ticket.Tags.Select(t => t.Name).ToArray();
+                if (!developerTags.Intersect(ticketTags).Any())
                 {
                     cost += 1;
                 }
