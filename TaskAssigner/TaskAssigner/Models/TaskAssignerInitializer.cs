@@ -6,7 +6,7 @@ using System.Web;
 
 namespace TaskAssigner.Models
 {
-    public class TaskAssignerInitializer : DropCreateDatabaseIfModelChanges<TaskAssignerContext>
+    public class TaskAssignerInitializer : DropCreateDatabaseAlways<TaskAssignerContext>
     {
         
         private List<Tag> _tags;
@@ -63,7 +63,7 @@ namespace TaskAssigner.Models
                                   new Ticket
                                       {
                                          Description = "Some front end stuff having to do with css and html",
-                                          Tags = new List<Tag> {GetTagByName("css"), GetTagByName("html")}
+                                         Tags = new List<Tag> {GetTagByName("css"), GetTagByName("html")}
                                       }
 
                               };

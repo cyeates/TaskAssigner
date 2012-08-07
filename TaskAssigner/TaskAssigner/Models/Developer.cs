@@ -6,8 +6,8 @@ namespace TaskAssigner.Models
     {
         public int DeveloperId { get; set; }
         public string Name { get; set; }
-        public virtual IEnumerable<Tag> Tags { get; set; }
-        public virtual IList<Ticket> Tickets { get; set; }
+        public virtual List<Tag> Tags { get; set; }
+        public virtual List<Ticket> Tickets { get; set; }
  
         public Developer()
         {

@@ -24,7 +24,7 @@ namespace TaskAssigner.Controllers
             
             var developers = _developerService.AssignTicketsToDevelopers();
 
-            return null;
+            return View(developers);
 
         }
 

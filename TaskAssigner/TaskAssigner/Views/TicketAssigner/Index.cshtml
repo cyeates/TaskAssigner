@@ -1,5 +1,34 @@
-﻿@{
-    ViewBag.Title = "Index";
+﻿@model IEnumerable<TaskAssigner.Models.Developer>
+
+@{
+    ViewBag.Title = "Tickets By Developer";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title </h2>
+
+@foreach(var developer in @Model)
+{
+    <div>
+        <h3>@developer.Name</h3>
+        <b>Tags:</b> @String.Join(". ", @developer.Tags)
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var ticket in developer.Tickets)
+            {
+                <tr>
+                    <td>@ticket.TicketId.ToString()</td>
+                    <td>@ticket.Description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+                    
+             
+}

@@ -23,7 +23,7 @@ namespace TaskAssigner.Models.Repositories
 
         public List<Developer> GetDevelopers()
         {
-            return _context.Developers.ToList();
+            return _context.Developers.Include("Tags").ToList();
         }
  
         public Developer GetById(int id)
