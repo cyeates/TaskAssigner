@@ -2,12 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TaskAssigner.Models;
 
 namespace TaskAssigner.Domain
 {
-    public class RandomOptimize : IOptimizationAlgorithm
+    public class RandomOptimize : OptimizationAlgorithm
     {
-        public List<int> GetSolution(List<List<int>> domain, Cost costCalculator)
+        public RandomOptimize(List<Developer> developers, List<Ticket> tickets, Cost calculator) : base(developers, tickets, calculator)
+        {
+
+        }
+
+        public override List<int> GetSolution()
         {
             int bestCost = int.MaxValue;
             List<int> bestSolution = new List<int>();
@@ -15,9 +21,9 @@ namespace TaskAssigner.Domain
 
             for(int i = 0; i < 1000; i++)
             {
-                var randomSolution = GetRandomSolution(domain, random);
+                var randomSolution = GetRandomSolution(this.Domain, random);
 
-                int cost = costCalculator.Calculate(randomSolution);
+                int cost = CostCalculator.Calculate(randomSolution);
                 if (cost < bestCost)
                 {
                     bestCost = cost;

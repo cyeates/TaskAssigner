@@ -11,10 +11,12 @@ namespace TaskAssigner.Web.Controllers
     public class TicketsController : Controller
     {
         private readonly ITicketRepository _ticketRepository;
+        private readonly ITagRepository _tagRepository;
 
-        public TicketsController(ITicketRepository ticketRepository)
+        public TicketsController(ITicketRepository ticketRepository, ITagRepository tagRepository)
         {
             _ticketRepository = ticketRepository;
+            _tagRepository = tagRepository;
         }
 
         public ActionResult Index()
@@ -25,20 +27,12 @@ namespace TaskAssigner.Web.Controllers
         [HttpGet]
         public JsonResult GetTickets()
         {
-            var tickets = new List<Ticket>
-                              {
-                                  new Ticket
-                                      {
-                                          Description = "this is a test."
-                                      },
-                                  new Ticket {Description = "this is another ticket."}
-                              };
+            var tickets = _ticketRepository.GetTickets();
 
-            var tags = new List<string> { "JavaScript", "C#", "asp.net-mvc", "entity-framework", "sql", "database", "jQuery" };
+            var tags = _tagRepository.GetTags();
+            return Json(new {Tickets = tickets.Select(t => new {Description = t.Description, Tags = t.Tags.Select(tag => tag.Name).ToList()}), Tags = tags.Select(t => t.Name).ToList()}, JsonRequestBehavior.AllowGet);
 
-            return Json(new {Tickets = tickets, Tags = tags}, JsonRequestBehavior.AllowGet);
-
-            //return Json(_ticketRepository.GetTickets(), JsonRequestBehavior.AllowGet);
+            
         }
 
         [HttpPost]

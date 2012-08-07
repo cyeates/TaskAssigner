@@ -15,20 +15,20 @@ namespace TaskAssigner.Tests
         [Test]
         public void RandomOptimizeReturnsSolution()
         {
-            var fakeData = new FakeData();
-            var tickets = fakeData.GetTickets();
-            var developers = fakeData.GetDevelopers();
+            //var fakeData = new FakeData();
+            //var tickets = fakeData.GetTickets();
+            //var developers = fakeData.GetDevelopers();
 
-            var domain = new List<List<int>>();
-            for (int i = 0; i < tickets.Count; i++)
-            {
-                domain.Add(new List<int> { 0, developers.Count });
+            //var domain = new List<List<int>>();
+            //for (int i = 0; i < tickets.Count; i++)
+            //{
+            //    domain.Add(new List<int> { 0, developers.Count });
 
-            }
+            //}
 
-            var cost = new Cost(developers, tickets);
-            var randomOptimize = new RandomOptimize();
-            var solution = randomOptimize.GetSolution(domain, cost);
+            //var cost = new Cost(developers, tickets);
+            //var randomOptimize = new RandomOptimize();
+            //var solution = randomOptimize.GetSolution(domain, cost);
 
         }
     }

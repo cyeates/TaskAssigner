@@ -5,7 +5,12 @@ using System.Web;
 
 namespace TaskAssigner.Models.Repositories
 {
-    public class TagRepository
+    public interface ITagRepository
+    {
+        IEnumerable<Tag> GetTags();
+    }
+
+    public class TagRepository : ITagRepository
     {
         private readonly TaskAssignerContext _context;
 

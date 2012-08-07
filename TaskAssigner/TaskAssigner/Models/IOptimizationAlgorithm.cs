@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TaskAssigner.Domain
 {
-    interface IOptimizationAlgorithm
+    public interface IOptimizationAlgorithm
     {
        
         List<int> GetSolution(List<List<int>> domain, Cost costCalculator);

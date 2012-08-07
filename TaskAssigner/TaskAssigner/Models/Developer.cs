@@ -6,12 +6,12 @@ namespace TaskAssigner.Models
     {
         public int DeveloperId { get; set; }
         public string Name { get; set; }
-        public IEnumerable<string> Tags { get; set; }
-        public IList<Ticket> Tickets { get; set; }
+        public virtual IEnumerable<Tag> Tags { get; set; }
+        public virtual IList<Ticket> Tickets { get; set; }
  
         public Developer()
         {
-            Tags = new List<string>();
+            Tags = new List<Tag>();
             Tickets = new List<Ticket>();
         }
     }

@@ -18,3 +18,6 @@ C:\Users\cyeates\Documents\GitHub\TaskAssigner\TaskAssigner\TaskAssigner.Tests\b
 C:\Users\cyeates\Documents\GitHub\TaskAssigner\TaskAssigner\TaskAssigner.Tests\bin\Debug\Ninject.Web.Common.xml
 C:\Users\cyeates\Documents\GitHub\TaskAssigner\TaskAssigner\TaskAssigner.Tests\bin\Debug\Ninject.pdb
 C:\Users\cyeates\Documents\GitHub\TaskAssigner\TaskAssigner\TaskAssigner.Tests\bin\Debug\Ninject.xml
+C:\Users\cyeates\Documents\GitHub\TaskAssigner\TaskAssigner\TaskAssigner.Tests\bin\Debug\Moq.dll
+C:\Users\cyeates\Documents\GitHub\TaskAssigner\TaskAssigner\TaskAssigner.Tests\bin\Debug\Moq.pdb
+C:\Users\cyeates\Documents\GitHub\TaskAssigner\TaskAssigner\TaskAssigner.Tests\bin\Debug\Moq.xml

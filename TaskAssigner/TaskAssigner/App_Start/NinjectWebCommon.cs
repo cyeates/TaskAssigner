@@ -1,3 +1,4 @@
+using TaskAssigner.Domain;
 using TaskAssigner.Models;
 using TaskAssigner.Models.Repositories;
 
@@ -56,8 +57,12 @@ namespace TaskAssigner.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<TaskAssignerContext>().To<TaskAssignerContext>();
+            kernel.Bind<TaskAssignerContext>().To<TaskAssignerContext>().InRequestScope();
             kernel.Bind<ITicketRepository>().To<TicketRepository>();
+            kernel.Bind<IDeveloperRepository>().To<DeveloperRepository>();
+            kernel.Bind<ITagRepository>().To<TagRepository>();
+            kernel.Bind<DeveloperService>().To<DeveloperService>();
+
         }        
     }
 }
