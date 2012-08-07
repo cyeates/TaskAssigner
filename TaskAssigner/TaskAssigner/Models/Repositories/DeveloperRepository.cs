@@ -9,6 +9,7 @@ namespace TaskAssigner.Models.Repositories
     {
         List<Developer> GetDevelopers();
         Developer GetById(int id);
+        void Add(Developer developer);
         void Save();
     }
 
@@ -30,6 +31,11 @@ namespace TaskAssigner.Models.Repositories
         {
             return _context.Developers.FirstOrDefault(d => d.DeveloperId == id);
         } 
+        public void Add(Developer developer)
+        {
+            _context.Developers.Add(developer);
+
+        }
 
         public void Save()
         {

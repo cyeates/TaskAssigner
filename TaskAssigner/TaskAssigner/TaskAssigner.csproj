@@ -88,6 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="Controllers\DevelopersController.cs" />
     <Compile Include="Controllers\TagsController.cs" />
     <Compile Include="Controllers\TicketAssignerController.cs" />
     <Compile Include="Controllers\TicketsController.cs" />
@@ -180,6 +181,8 @@
     <Content Include="Views\TicketAssigner\Index.cshtml" />
     <Content Include="Views\Tickets\Create.cshtml" />
     <Content Include="Views\Tickets\Index.cshtml" />
+    <Content Include="Views\Developers\Index.cshtml" />
+    <Content Include="Views\Developers\Create.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
